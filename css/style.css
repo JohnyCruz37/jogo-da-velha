@@ -1,0 +1,157 @@
+:root{
+    --escuro: #232622;
+    --medio: #8c897b;
+    --claro: #f2de79;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(45deg, var(--claro)0%, var(--medio)50%, var(--escuro)100%);
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* quadro geral */
+.quadro{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+
+}
+
+
+/* estilo das celulas */
+.celulas{
+    width: 15vw;
+    height: 15vw;
+    border: 2px solid var(--escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.celulas.x, .celulas.o{
+    cursor: not-allowed;
+}
+
+.celulas:nth-child(1),.celulas:nth-child(2),.celulas:nth-child(3){
+    border-top: transparent;
+}
+.celulas:nth-child(1),.celulas:nth-child(4),.celulas:nth-child(7){
+    border-left: transparent;
+}
+.celulas:nth-child(7),.celulas:nth-child(8),.celulas:nth-child(9){
+    border-bottom: transparent;
+}
+.celulas:nth-child(3),.celulas:nth-child(6),.celulas:nth-child(9){
+    border-right: transparent;
+}
+
+/* elementos x*/
+.celulas.x::before, 
+.celulas.x::after, 
+.quadro.x .celulas:not(.x):not(.o):hover::after,
+.quadro.x .celulas:not(.x):not(.o):hover::before{
+    content: "";
+        width: calc(100% * .9);
+        height: calc(100% * .10);
+        background-color: var(--claro);
+        border-radius: 5px;
+        position: absolute;
+}
+.celulas.x::before,
+.quadro.x .celulas:not(.x):not(.o):before{
+    transform: rotate(45deg);
+}
+.celulas.celulas.x::after,
+.quadro.x .celulas:not(.x):not(.o):after{
+    transform: rotate(-45deg);
+}
+
+
+/* elementos o*/
+.celulas.o::before, 
+.celulas.o::after,
+.quadro.o .celulas:not(.x):not(.o):hover::after,
+.quadro.o .celulas:not(.x):not(.o):hover::before{
+    content: "";
+        width: calc(100% * .7);
+        height: calc(100% * .7);
+        background-color: var(--escuro);
+        border-radius: 50%;
+        position: absolute;
+}
+
+.celulas.o::before, .celulas.o::after{
+    content: "";
+        width: calc(100% * .7);
+        height: calc(100% * .7);
+        background-color: var(--escuro);
+        border-radius: 50%;
+        position: absolute;
+}
+
+
+
+
+
+/* estilo do x hover no quadro */
+.quadro.x .celulas:not(.x):not(.o):hover::after,
+.quadro.x .celulas:not(.x):not(.o):hover::before{
+    background-color: transparent;
+    border: 1px solid var(--claro);
+}
+
+/* estilo do o hover no quadro */
+.quadro.o .celulas:not(.x):not(.o):hover::after,
+.quadro.o .celulas:not(.x):not(.o):hover::before{
+   border: 1px solid var(--claro);
+   background-color: transparent;
+}
+
+/* mensagem do vencedor */
+.msg-vencedor{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #232622d3;
+}
+.msg-vencedor button{
+    font-size: 2.5rem;
+    background-color: var(--medio);
+    border-color: var(--escuro);
+    padding: 5px;
+    color: var(--escuro);
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: .3s;
+}
+.msg-vencedor button:hover{
+    border-color: var(--claro);
+    color: var(--claro);
+    background-color: var(--escuro);
+    cursor: pointer;
+}
+
+.msg-vencedor p{
+    font-size: 5rem;
+    color: var(--medio);
+    text-shadow: 2px 2px 2px var(--escuro);
+}
