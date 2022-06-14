@@ -1,7 +1,8 @@
 const celulas = document.querySelectorAll('.celulas');
 const quadro = document.querySelector('.quadro');
-const msgResultado = document.querySelector('.msg-vencedor')
+const msgResultado = document.querySelector('.msg-resultado')
 const msgPartida = document.querySelector('.msg-partida')
+const reiniciar = document.querySelector('.reiniciar')
 
 let turnoBolinha;
 
@@ -18,25 +19,30 @@ const combinacaoVitoria = [
 
 //iniciar partida
 const iniciarPartida = () =>{
+    let turnoBolinha = false;
     //função criada para adicionar uma ação em cada elemento do conjunto por tanto: cada elemento de CELULAS denominado CELULA vai receber uma mesma ação. Nesse caso quando acontecer o clique sobre uma 'celula' será acionado a função 'clicar'. E foi adicionado o comando 'once: true'. para que essa ação só ocorra no primeiro clique daquela celula e não se repita a função 'clicar' caso seja clicado na celula que já recebeu o primeiro clique.
+    // e ao mesmo tempo servirá para resetar todo o jogo quando clicado no botão reiniciar
     for(const celula of celulas){
+    celula.classList.remove('o');
+    celula.classList.remove('x');
+    celula.removeEventListener('click', clicar);
     celula.addEventListener('click',clicar,{once: true})
     }
 
-    let turnoBolinha = false;
-    quadro.classList.add('x');
+    alternarTurno();
+
+    msgPartida.classList.remove('mostrar-resultado');
 }
 //finalizar jogo
 const fimPartida = (empate) => {
     if(empate){
         msgResultado.innerText = 'Empate!';
     } else {
-        msgResultado.innerText = turnoBolinha 
-        ? 'o é o campeão!' 
-        : 'X é o campeão';
+        msgResultado.innerText = turnoBolinha ? 'Bolinha é o campeão!' : 'X é o campeão';
     }
     msgPartida.classList.add('mostrar-resultado');
 }
+
 
 //chegar vitoria essa função verifica o 'jogador atual' e se existe alguma combinação das que estão determinadas na array 'combinacaoVitoria'. Em todos os elementos clicados 'index' ele avalia para saber se o jogadorAtual completou uma combinação.
 const checarVitoria = (jogadorAtual) => {
@@ -51,11 +57,8 @@ const checarVitoria = (jogadorAtual) => {
 const marcar = (eCel, addClasse) =>{
     eCel.classList.add(addClasse);
 };
-
-//função para trocar a classe do quadro e assim trocar a vez do jogador.
-const trocarTurno = () =>{
-    turnoBolinha = !turnoBolinha; //'!' quer dizer o inverso do que é
-    
+// alternar os turnos entre bolinha e x
+const alternarTurno = () => {
     //elimina qualquer classe antes de adicionar outra
     quadro.classList.remove('o');
     quadro.classList.remove('x');
@@ -66,6 +69,14 @@ const trocarTurno = () =>{
     }else{
         quadro.classList.add('x')
     }
+}
+
+
+//função para trocar a classe do quadro e assim trocar a vez do jogador.
+const trocarTurno = () =>{
+    turnoBolinha = !turnoBolinha; //'!' quer dizer o inverso do que é
+    
+    alternarTurno();
 }
 
 //e = será o elemento da celula ou 'x' ou 'o'
@@ -90,5 +101,5 @@ const clicar = (e) =>{
 }
 
 iniciarPartida();
-
+reiniciar.addEventListener('click', iniciarPartida)
 

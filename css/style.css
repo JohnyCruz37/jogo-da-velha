@@ -155,6 +155,6 @@ body{
     color: var(--medio);
     text-shadow: 2px 2px 2px var(--escuro);
 }
-.mostrar-resultado{
+.msg-partida.mostrar-resultado{
     display: flex;
 }
