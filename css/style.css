@@ -120,7 +120,7 @@ body{
 }
 
 /* mensagem do vencedor */
-.msg-vencedor{
+.msg-partida{
     position: fixed;
     top: 0;
     left: 0;
@@ -133,7 +133,7 @@ body{
     align-items: center;
     background-color: #232622d3;
 }
-.msg-vencedor button{
+.msg-partida button{
     font-size: 2.5rem;
     background-color: var(--medio);
     border-color: var(--escuro);
@@ -143,15 +143,18 @@ body{
     margin-top: 1rem;
     transition: .3s;
 }
-.msg-vencedor button:hover{
+.msg-partida button:hover{
     border-color: var(--claro);
     color: var(--claro);
     background-color: var(--escuro);
     cursor: pointer;
 }
 
-.msg-vencedor p{
+.msg-partida p{
     font-size: 5rem;
     color: var(--medio);
     text-shadow: 2px 2px 2px var(--escuro);
+}
+.mostrar-resultado{
+    display: flex;
 }

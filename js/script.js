@@ -1,5 +1,7 @@
 const celulas = document.querySelectorAll('.celulas');
 const quadro = document.querySelector('.quadro');
+const msgResultado = document.querySelector('.msg-vencedor')
+const msgPartida = document.querySelector('.msg-partida')
 
 let turnoBolinha;
 
@@ -24,22 +26,33 @@ const iniciarPartida = () =>{
     let turnoBolinha = false;
     quadro.classList.add('x');
 }
+//finalizar jogo
+const fimPartida = (empate) => {
+    if(empate){
+        msgResultado.innerText = 'Empate!';
+    } else {
+        msgResultado.innerText = turnoBolinha 
+        ? 'o é o campeão!' 
+        : 'X é o campeão';
+    }
+    msgPartida.classList.add('mostrar-resultado');
+}
 
 //chegar vitoria essa função verifica o 'jogador atual' e se existe alguma combinação das que estão determinadas na array 'combinacaoVitoria'. Em todos os elementos clicados 'index' ele avalia para saber se o jogadorAtual completou uma combinação.
-function checarVitoria (jogadorAtual) {
+const checarVitoria = (jogadorAtual) => {
     return combinacaoVitoria.some((combinacao) =>{
         return combinacao.every((index) => {
-            return elementoCelula[index].classList.contains(jogadorAtual);
+            return celulas[index].classList.contains(jogadorAtual);
         });
     });
 };
 
 //adicionar classe oposta a atual
-const marcar = (elementoCelula, adicionarClasse) =>{
-    elementoCelula.classList.add(adicionarClasse);
+const marcar = (eCel, addClasse) =>{
+    eCel.classList.add(addClasse);
 };
 
-//função para trocar a classa do quadro e assim trocar a vez do jogador.
+//função para trocar a classe do quadro e assim trocar a vez do jogador.
 const trocarTurno = () =>{
     turnoBolinha = !turnoBolinha; //'!' quer dizer o inverso do que é
     
@@ -54,19 +67,21 @@ const trocarTurno = () =>{
         quadro.classList.add('x')
     }
 }
+
 //e = será o elemento da celula ou 'x' ou 'o'
-var clicar = (e) =>{
+
+const clicar = (e) =>{
     //adicionar a 'o' caso a anterior tenha cido 'x' e vice-versa;
     const elementoCelula = e.target;
     const adicionarClasse = turnoBolinha ? 'o' : 'x';
 
     marcar(elementoCelula, adicionarClasse);
+
     //verificar se existe a situação de vitória
-    const campeao = checarVitoria(elementoCelula);
+    const campeao = checarVitoria(adicionarClasse, elementoCelula);
     if(campeao){
-        console.log('voce venceu!')
+        fimPartida(false);
     }
-    
     //verificar se houve empate
 
     //mudar o simbolo
