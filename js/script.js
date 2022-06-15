@@ -30,8 +30,7 @@ const iniciarPartida = () =>{
     }
 
     alternarTurno();
-
-    msgPartida.classList.remove('mostrar-resultado');
+    msgPartida.classList.remove('mostrar-resultado');//retirar a tela com o resultado
 }
 //finalizar jogo
 const fimPartida = (empate) => {
@@ -53,6 +52,12 @@ const checarVitoria = (jogadorAtual) => {
     });
 };
 
+const checarEmpate = () => {
+    return [...celulas].every((celula) =>{
+        return celula.classList.contains('x') || celula.classList.contains('o');
+    })
+}
+
 //adicionar classe oposta a atual
 const marcar = (eCel, addClasse) =>{
     eCel.classList.add(addClasse);
@@ -67,9 +72,9 @@ const alternarTurno = () => {
     if(turnoBolinha){
         quadro.classList.add("o");
     }else{
-        quadro.classList.add('x')
+        quadro.classList.add('x');
     }
-}
+};
 
 
 //função para trocar a classe do quadro e assim trocar a vez do jogador.
@@ -77,7 +82,7 @@ const trocarTurno = () =>{
     turnoBolinha = !turnoBolinha; //'!' quer dizer o inverso do que é
     
     alternarTurno();
-}
+};
 
 //e = será o elemento da celula ou 'x' ou 'o'
 
@@ -90,13 +95,17 @@ const clicar = (e) =>{
 
     //verificar se existe a situação de vitória
     const campeao = checarVitoria(adicionarClasse, elementoCelula);
-    if(campeao){
-        fimPartida(false);
-    }
     //verificar se houve empate
+    const empate = checarEmpate();
 
-    //mudar o simbolo
-    trocarTurno();
+    if (campeao){
+        fimPartida(false);
+    } else if (empate) {
+        fimPartida(true);
+    } else {
+        //mudar o simbolo
+        trocarTurno();
+    }
 
 }
 
