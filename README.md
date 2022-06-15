@@ -6,7 +6,7 @@
                   ](https://user-images.githubusercontent.com/102477755/173818476-a3096cd3-fa2a-4fcb-9f88-7d79145181fe.jpg)
 
 
-<h2 align="center"> Descrição <h2>
+<h2 align="center"> Descrição </h2>
 <p>Este jogo foi desenvolvido seguindo um projeto já existente (link no fim do arquivo). Com a finalidade de aperfeicoar eu conhecimento em javascript e uso do DOM para manipular elementos HTML.</p>
   <p> Para fixar ainda mais o meu entendimento das funções criaçadas e deixar o projeto mais único trabalhei com nomenclaturas diferentes, utilizei as classes para pegar os elementos HTML, e comentei em muitas partes o que é cada coisa. </p>
   
