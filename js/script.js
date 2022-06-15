@@ -35,7 +35,7 @@ const iniciarPartida = () =>{
 //finalizar jogo
 const fimPartida = (empate) => {
     if(empate){
-        msgResultado.innerText = 'Empate!';
+        msgResultado.innerText = 'Deu Velha!';
     } else {
         msgResultado.innerText = turnoBolinha ? 'Bolinha é o campeão!' : 'X é o campeão';
     }
