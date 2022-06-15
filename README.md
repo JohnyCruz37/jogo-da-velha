@@ -8,7 +8,15 @@
 
 <h2 align="center"> Descrição </h2>
 <p>Este jogo foi desenvolvido seguindo um projeto já existente (link no fim do arquivo). Com a finalidade de aperfeicoar eu conhecimento em javascript e uso do DOM para manipular elementos HTML.</p>
-  <p> Para fixar ainda mais o meu entendimento das funções criaçadas e deixar o projeto mais único trabalhei com nomenclaturas diferentes, utilizei as classes para pegar os elementos HTML, e comentei em muitas partes o que é cada coisa. </p>
+  <p> Para fixar ainda mais o meu entendimento das funções criadas e deixar o projeto mais único trabalhei com nomenclaturas diferentes, utilizei as classes para pegar os elementos HTML, e comentei em muitas partes o que é cada coisa. </p>
+  
+ <h2 align="center"> Regras do Jogo </h2>
+ <ul>
+  <li>Cada jogador escolhe um lugar na grade para adicionar a sua jogada</li>
+  <li>Ao clicar o ponteiro do mouse mostra sinaliza a vez do próximo jogador mostrando o desenho que será inserido a seguir</li>
+  <li>O vencedor será aquele que alinhar três desenhos iguais, seja na horizontal, na vertical ou na diagonal</li>
+  <li>Caso nenhum deles consiga alinhas os desenhos surgirá a mensagem de "DEU VELHA!";
+</ul>
   
 <p>link do projeto original:<p>
   Felipe Rocha - dicasparadevs
