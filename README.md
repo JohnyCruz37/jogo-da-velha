@@ -18,6 +18,13 @@ https://johnycruz37.github.io/jogo-da-velha/
   <li>O vencedor será aquele que alinhar três desenhos iguais, seja na horizontal, na vertical ou na diagonal</li>
   <li>Caso nenhum deles consiga alinhas os desenhos surgirá a mensagem de "DEU VELHA!";
 </ul>
+
+<h3>Tecnologias:</h3>
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript - Vanilla </li>
+  </ul>
   
 <h6>link do projeto original:</h6>
   Felipe Rocha - dicasparadevs
