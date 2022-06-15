@@ -18,6 +18,6 @@
   <li>Caso nenhum deles consiga alinhas os desenhos surgirá a mensagem de "DEU VELHA!";
 </ul>
   
-<p>link do projeto original:<p>
+<h6>link do projeto original:</h6>
   Felipe Rocha - dicasparadevs
   https://github.com/felipemotarocha/jogo-da-velha-dicasparadevs
