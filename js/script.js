@@ -8,6 +8,7 @@ const nomeO = document.querySelector('.nome-o');
 const pontoX = document.querySelector('.contador-x')
 const pontoO = document.querySelector('.contador-o')
 const pontoVelha = document.querySelector('.contador-velha')
+const msgCampeao = document.querySelector('.msg-resultado')
 
 
 // adicionar o nome dos jogadores
@@ -15,6 +16,7 @@ const nomeUm = prompt('Adicione o Nome do jogador "X":')
 nomeX.innerText = nomeUm;
 const nomeDois = prompt('Adicione o Nome do jogador "O":')
 nomeO.innerText = nomeDois;
+
 
 let turnoBolinha;
 
@@ -72,8 +74,8 @@ const fimPartida = (empate) => {
     } else {       
 
         msgResultado.innerText = turnoBolinha 
-                                ? 'Bolinha é o campeão!' 
-                                : 'X é o campeão';
+                                ? nomeDois +' é o campeão!' 
+                                : nomeUm + ' é o campeão';
         
         if(turnoBolinha){
             let pBolinha = pontoO.textContent;
