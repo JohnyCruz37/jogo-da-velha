@@ -5,6 +5,16 @@ const msgPartida = document.querySelector('.msg-partida')
 const reiniciar = document.querySelector('.reiniciar')
 const nomeX = document.querySelector('.nome-x');
 const nomeO = document.querySelector('.nome-o');
+const pontoX = document.querySelector('.contador-x')
+const pontoO = document.querySelector('.contador-o')
+const pontoVelha = document.querySelector('.contador-velha')
+
+
+// adicionar o nome dos jogadores
+const nomeUm = prompt('Adicione o Nome do jogador "X":')
+nomeX.innerText = nomeUm;
+const nomeDois = prompt('Adicione o Nome do jogador "O":')
+nomeO.innerText = nomeDois;
 
 let turnoBolinha;
 
@@ -34,15 +44,6 @@ const iniciarPartida = () =>{
     alternarTurno();
     msgPartida.classList.remove('mostrar-resultado');//retirar a tela com o resultado
 }
-//finalizar jogo
-const fimPartida = (empate) => {
-    if(empate){
-        msgResultado.innerText = 'Deu Velha!';
-    } else {
-        msgResultado.innerText = turnoBolinha ? 'Bolinha é o campeão!' : 'X é o campeão';
-    }
-    msgPartida.classList.add('mostrar-resultado');
-}
 
 
 //chegar vitoria essa função verifica o 'jogador atual' e se existe alguma combinação das que estão determinadas na array 'combinacaoVitoria'. Em todos os elementos clicados 'index' ele avalia para saber se o jogadorAtual completou uma combinação.
@@ -54,11 +55,44 @@ const checarVitoria = (jogadorAtual) => {
     });
 };
 
+//empate
 const checarEmpate = () => {
     return [...celulas].every((celula) =>{
         return celula.classList.contains('x') || celula.classList.contains('o');
     })
+};
+
+//finalizar jogo
+const fimPartida = (empate) => {
+    if(empate){
+        msgResultado.innerText = 'Deu Velha!';
+        let pVelha = pontoVelha.textContent;
+        pVelha = parseInt(pVelha)
+        pontoVelha.innerText = pVelha + 1;
+    } else {       
+
+        msgResultado.innerText = turnoBolinha 
+                                ? 'Bolinha é o campeão!' 
+                                : 'X é o campeão';
+        
+        if(turnoBolinha){
+            let pBolinha = pontoO.textContent;
+            pBolinha = parseInt(pBolinha)
+
+            pontoO.innerText = pBolinha + 1;
+        }else{
+            let pX = pontoX.textContent
+            pX = parseInt(pX);
+
+            pontoX.innerText = pX + 1;
+        }   
+    }
+    msgPartida.classList.add('mostrar-resultado');
 }
+//metodo placar
+
+
+
 
 //adicionar classe oposta a atual
 const marcar = (eCel, addClasse) =>{
@@ -96,12 +130,13 @@ const clicar = (e) =>{
     marcar(elementoCelula, adicionarClasse);
 
     //verificar se existe a situação de vitória
-    const campeao = checarVitoria(adicionarClasse, elementoCelula);
+    const campeao = checarVitoria(adicionarClasse);
     //verificar se houve empate
     const empate = checarEmpate();
 
     if (campeao){
         fimPartida(false);
+
     } else if (empate) {
         fimPartida(true);
     } else {
@@ -111,11 +146,7 @@ const clicar = (e) =>{
 
 }
 
-// adicionar o nome dos jogadores
-const nomeUm = prompt('Adicione o Nome do Primeiro jogador:')
-nomeX.innerText = nomeUm;
-const nomeDois = prompt('Adicione o Nome do Segundo jogador:')
-nomeO.innerText = nomeDois;
+
 
 
 // adicionar o placar do jogo
