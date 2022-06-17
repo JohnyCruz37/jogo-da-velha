@@ -3,6 +3,8 @@ const quadro = document.querySelector('.quadro');
 const msgResultado = document.querySelector('.msg-resultado')
 const msgPartida = document.querySelector('.msg-partida')
 const reiniciar = document.querySelector('.reiniciar')
+const nomeX = document.querySelector('.nome-x');
+const nomeO = document.querySelector('.nome-o');
 
 let turnoBolinha;
 
@@ -108,6 +110,21 @@ const clicar = (e) =>{
     }
 
 }
+
+// adicionar o nome dos jogadores
+const nomeUm = prompt('Adicione o Nome do Primeiro jogador:')
+nomeX.innerText = nomeUm;
+const nomeDois = prompt('Adicione o Nome do Segundo jogador:')
+nomeO.innerText = nomeDois;
+
+
+// adicionar o placar do jogo
+
+// zerar o placar do jogo
+
+
+
+
 
 iniciarPartida();
 reiniciar.addEventListener('click', iniciarPartida)
