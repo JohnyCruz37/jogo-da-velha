@@ -127,28 +127,13 @@ body{
     bottom: 0;
     right: 0;
 
-    display: none; /* deixar a msg escondida*/
+    display: flex; /* deixar a msg escondida*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #232622d3;
 }
-.msg-partida button{
-    font-size: 2.5rem;
-    background-color: var(--medio);
-    border-color: var(--escuro);
-    padding: 5px;
-    color: var(--escuro);
-    border-radius: 5px;
-    margin-top: 1rem;
-    transition: .3s;
-}
-.msg-partida button:hover{
-    border-color: var(--claro);
-    color: var(--claro);
-    background-color: var(--escuro);
-    cursor: pointer;
-}
+
 
 .msg-partida p{
     font-size: 5rem;
@@ -186,12 +171,12 @@ body{
 }
 
 .placar-jogador{
-    color: var(--medio);
+    color: var(--claro);
     font-size: 2rem;
     text-shadow: 2px 2px 2px var(--escuro);
 }
 .placar-contador{
-    color: var(--medio);
+    color: var(--claro);
     font-size: 5rem;
     text-shadow: 2px 2px 2px var(--escuro);
 }
@@ -201,3 +186,30 @@ body{
     color: var(--claro);
     font-size: 5rem;
 }
+
+/* botoes */
+.botoes{
+    /* border: 1px solid green; */
+    width: 80vw;
+
+    display: flex;
+    justify-content: space-around;
+}
+.botoes button{
+    font-size: 2.5rem;
+    background-color: var(--medio);
+    border-color: var(--escuro);
+    padding: 5px;
+    color: var(--escuro);
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: .3s;
+}
+.botoes button:hover{
+    border-color: var(--claro);
+    color: var(--claro);
+    background-color: var(--escuro);
+    cursor: pointer;
+}
+
+

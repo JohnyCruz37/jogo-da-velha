@@ -3,6 +3,8 @@ const quadro = document.querySelector('.quadro');
 const msgResultado = document.querySelector('.msg-resultado')
 const msgPartida = document.querySelector('.msg-partida')
 const reiniciar = document.querySelector('.reiniciar')
+const limpar = document.querySelector('.limpar')
+const renomear = document.querySelector('.renomear')
 const nomeX = document.querySelector('.nome-x');
 const nomeO = document.querySelector('.nome-o');
 const pontoX = document.querySelector('.contador-x')
@@ -91,10 +93,14 @@ const fimPartida = (empate) => {
     }
     msgPartida.classList.add('mostrar-resultado');
 }
-//metodo placar
 
-
-
+//limpar placar
+function limparPlacar () {
+    pontoX.innerText = 0;
+    pontoO.innerText = 0;
+    pontoVelha.innerText = 0; 
+}
+ 
 
 //adicionar classe oposta a atual
 const marcar = (eCel, addClasse) =>{
@@ -149,16 +155,17 @@ const clicar = (e) =>{
 }
 
 
-
-
-// adicionar o placar do jogo
-
-// zerar o placar do jogo
-
-
-
-
-
 iniciarPartida();
-reiniciar.addEventListener('click', iniciarPartida)
+reiniciar.addEventListener('click', iniciarPartida);
+limpar.addEventListener('click', limparPlacar)
 
+renomear.addEventListener('click', () =>{
+    // adicionar o nome dos jogadores
+    const nomeUm = prompt('Adicione o Nome do jogador "X":')
+    nomeX.innerText = nomeUm;
+    const nomeDois = prompt('Adicione o Nome do jogador "O":')
+    nomeO.innerText = nomeDois;
+
+    limparPlacar();
+    
+})
