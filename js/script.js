@@ -76,8 +76,8 @@ const fimPartida = (empate) => {
     } else {       
 
         msgResultado.innerText = turnoBolinha 
-                                ? nomeDois +' é o campeão!' 
-                                : nomeUm + ' é o campeão';
+                                ? nomeO.textContent +' é o campeão!' 
+                                : nomeX.textContent + ' é o campeão';
         
         if(turnoBolinha){
             let pBolinha = pontoO.textContent;
