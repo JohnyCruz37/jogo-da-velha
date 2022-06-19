@@ -18,6 +18,24 @@ https://johnycruz37.github.io/jogo-da-velha/
   <li>O vencedor será aquele que alinhar três desenhos iguais, seja na horizontal, na vertical ou na diagonal</li>
   <li>Caso nenhum deles consiga alinhas os desenhos surgirá a mensagem de "DEU VELHA!";
 </ul>
+<h2 align="center"> Funcionalidades </h2>
+<ul>
+  <li> Reiniciar:
+    <ul>
+      <li>Inicia as partidas</li>
+    </ul>
+  </li>
+  <li> Renomear:
+    <ul>
+      <li>Possibilita trocar o nome dos jogadores. Sempre que é renomeado os jogadores o placar é zero.</li>
+    </ul>
+  </li>
+  <li> Limpar placar:
+    <ul>
+      <li>Ele apenas zera o placar para que seja reiniciado a contagem das partidas para os mesmos jogadores.</li>
+    </ul>
+  </li>
+</ul>
 
 <h3>Tecnologias:</h3>
 <ul>
